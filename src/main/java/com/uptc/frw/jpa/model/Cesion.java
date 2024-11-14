@@ -1,10 +1,11 @@
-package com.uptc.frw.jpa.models;
+package com.uptc.frw.jpa.model;
 
 import jakarta.persistence.*;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.Date;
+
+
+
 
 @Entity
 @Table(name = "cesion")

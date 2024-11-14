@@ -1,4 +1,4 @@
-package com.uptc.frw.jpa.models;
+package com.uptc.frw.jpa.model;
 
 import jakarta.persistence.*;
 

@@ -1,8 +1,6 @@
-package com.uptc.frw.jpa.models;
+package com.uptc.frw.jpa.model;
 
 import jakarta.persistence.*;
-
-import java.util.List;
 
 @Entity
 @Table(name="detalle_compra")

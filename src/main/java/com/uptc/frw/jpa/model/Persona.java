@@ -1,11 +1,13 @@
-package com.uptc.frw.jpa.models;
+package com.uptc.frw.jpa.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
 
 @Entity
 @Table(name = "persona")
+
 public class Persona {
     @Id
     @Column(name = "CEDULA")
@@ -24,10 +26,16 @@ public class Persona {
     private String telefono;
 
     @OneToMany(mappedBy = "clienteFactura")
+    @JsonIgnore
     private List<Compra> billsCliente;
 
     @OneToMany(mappedBy = "vendedorFactura")
+    @JsonIgnore
     private List<Compra> billsvendedor;
+
+
+    public Persona() {
+    }
 
     public Integer getId() {
         return id;
@@ -69,19 +77,5 @@ public class Persona {
         this.telefono = telefono;
     }
 
-    public List<Compra> getBillsCliente() {
-        return billsCliente;
-    }
 
-    public void setBillsCliente(List<Compra> billsCliente) {
-        this.billsCliente = billsCliente;
-    }
-
-    public List<Compra> getBillsvendedor() {
-        return billsvendedor;
-    }
-
-    public void setBillsvendedor(List<Compra> billsvendedor) {
-        this.billsvendedor = billsvendedor;
-    }
 }

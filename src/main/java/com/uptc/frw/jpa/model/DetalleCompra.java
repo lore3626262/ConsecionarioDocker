@@ -8,6 +8,7 @@ import jakarta.persistence.*;
 public class DetalleCompra {
     @Id
     @Column(name = "ID_DETALLE")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int idDetalle;
 
     @Column(name = "NUMERO_FACTURA",insertable = false, updatable = false)
@@ -22,7 +23,8 @@ public class DetalleCompra {
 
     @ManyToOne
     @JoinColumn(name = "ID_OPCIONES_MODELO")
-    private OpcionesModelo opcionesmodelo;
+    private OpcionesModelo detalls;
+
 
     public int getIdDetalle() {
         return idDetalle;
@@ -56,11 +58,11 @@ public class DetalleCompra {
         this.detallecompra = detallecompra;
     }
 
-    public OpcionesModelo getOpcionesmodelo() {
-        return opcionesmodelo;
+    public OpcionesModelo getDetalls() {
+        return detalls;
     }
 
-    public void setOpcionesmodelo(OpcionesModelo opcionesmodelo) {
-        this.opcionesmodelo = opcionesmodelo;
+    public void setDetalls(OpcionesModelo detalls) {
+        this.detalls = detalls;
     }
 }

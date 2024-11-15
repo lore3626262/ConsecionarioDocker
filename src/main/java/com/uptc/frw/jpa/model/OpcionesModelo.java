@@ -9,7 +9,8 @@ import java.util.List;
 public class OpcionesModelo {
     @Id
     @Column(name = "ID_OPCIONES_MODELO")
-    private Integer id;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private int id;
 
     @Column(name = "NOMBRE")
     private String nombre;
@@ -18,10 +19,13 @@ public class OpcionesModelo {
     private String descripcion;
 
 
-    @OneToMany(mappedBy ="opcionesmodelo" )
-    private List<DetalleCompra> detalleOpcionesModelo;
+    @OneToMany(mappedBy ="detalls" )
+    private List<DetalleCompra> detalls;
 
-    public Integer getId() {
+
+
+
+    public int getId() {
         return id;
     }
 
@@ -45,11 +49,5 @@ public class OpcionesModelo {
         this.descripcion = descripcion;
     }
 
-    public List<DetalleCompra> getDetalleOpcionesModelo() {
-        return detalleOpcionesModelo;
-    }
 
-    public void setDetalleOpcionesModelo(List<DetalleCompra> detalleOpcionesModelo) {
-        this.detalleOpcionesModelo = detalleOpcionesModelo;
-    }
 }

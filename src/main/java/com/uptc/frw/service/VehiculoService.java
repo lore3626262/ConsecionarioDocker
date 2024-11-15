@@ -22,7 +22,7 @@ public class VehiculoService {
         return vehiculoRepository.findAll();
     }
 
-    public Vehiculo findVehiculo(long id) {
+    public Vehiculo findVehiculo(String id) {
         return vehiculoRepository.findById(id).orElse(null);
     }
 
@@ -30,13 +30,13 @@ public class VehiculoService {
         return vehiculoRepository.save(vehiculo);
     }
 
-    public void deleteVehiculo(long id) {
+    public void deleteVehiculo(String id) {
         vehiculoRepository.deleteById(id);
     }
 
     public Vehiculo updateVehiculo(Vehiculo vehiculo) {
 
-        Vehiculo vehiculoOld = findVehiculo(vehiculo.getIdReferencia());
+        Vehiculo vehiculoOld = findVehiculo(vehiculo.getPlaca());
 
         if (vehiculoOld == null) {
             throw new IllegalArgumentException("El vehículo con el ID " + vehiculo.getIdReferencia() + " no se encuentra.");

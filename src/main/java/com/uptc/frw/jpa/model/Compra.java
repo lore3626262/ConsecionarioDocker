@@ -10,6 +10,7 @@ import java.util.List;
 public class Compra {
     @Id
     @Column(name = "NUMERO_FACTURA")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 
 

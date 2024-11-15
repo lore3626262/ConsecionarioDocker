@@ -16,11 +16,12 @@ public class VehiculoController {
 
     @GetMapping
     public List<Vehiculo> getAllVehiculos() {
+
         return vehiculoService.findAll();
     }
 
     @GetMapping("{id}")
-    public Vehiculo getVehiculo(@PathVariable int id) {
+    public Vehiculo getVehiculo(@PathVariable String id) {
         return vehiculoService.findVehiculo(id);
     }
 
@@ -30,7 +31,7 @@ public class VehiculoController {
     }
 
     @DeleteMapping("{id}")
-    public void deleteVehiculo(@PathVariable int id) {
+    public void deleteVehiculo(@PathVariable String id) {
         vehiculoService.deleteVehiculo(id);
     }
 

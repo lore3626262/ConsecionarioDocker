@@ -17,7 +17,7 @@ public class ReferenciaService {
         return referenciaRepository.findAll();
     }
 
-    public Referencia findReferencia(long id) {
+    public Referencia findReferencia(int id) {
         return referenciaRepository.findById(id).orElse(null);
     }
 
@@ -25,7 +25,7 @@ public class ReferenciaService {
         return referenciaRepository.save(referencia);
     }
 
-    public void deleteReferencia(long id) {
+    public void deleteReferencia(int id) {
         referenciaRepository.deleteById(id);
     }
 

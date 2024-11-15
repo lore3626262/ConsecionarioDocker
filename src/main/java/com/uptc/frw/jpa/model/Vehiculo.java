@@ -32,6 +32,8 @@ public class Vehiculo {
     private Referencia referencia;
 
 
+
+
     public String getPlaca() {
         return placa;
     }

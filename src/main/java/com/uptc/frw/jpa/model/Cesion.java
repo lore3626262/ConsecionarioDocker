@@ -12,13 +12,13 @@ import java.util.Date;
 public class Cesion {
     @Id
     @Column(name = "ID_CESION")
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "PLACA",insertable = false, updatable = false)
+    @Column(name = "PLACA", insertable = false, updatable = false)
     private String placa;
 
-    @Column(name = "NUMERO_FACTURA",insertable = false, updatable = false)
+    @Column(name = "NUMERO_FACTURA", insertable = false, updatable = false)
     private int numeroFactura;
 
     @Column(name = "TASACION")
@@ -28,11 +28,11 @@ public class Cesion {
     private Date fechaCesion;
 
     @ManyToOne
-    @JoinColumn(name = "PLACA")
+    @JoinColumn(name = "PLACA", referencedColumnName = "PLACA")
     private Vehiculo cesionVehiculo;
 
     @ManyToOne
-    @JoinColumn(name = "NUMERO_FACTURA")
+    @JoinColumn(name = "NUMERO_FACTURA", referencedColumnName = "NUMERO_FACTURA")
     private Compra cesionCompra;
 
     public int getId() {

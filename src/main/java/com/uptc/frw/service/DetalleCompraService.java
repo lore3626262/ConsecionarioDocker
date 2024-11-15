@@ -1,6 +1,8 @@
 package com.uptc.frw.service;
 
+import com.uptc.frw.jpa.model.Compra;
 import com.uptc.frw.jpa.model.DetalleCompra;
+import com.uptc.frw.jpa.model.OpcionesModelo;
 import com.uptc.frw.jpa.repository.DetalleCompraRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,14 @@ public class DetalleCompraService {
     @Autowired
     private DetalleCompraRepository detalleCompraRepository;
 
+
+    @Autowired
+    private CompraService compraService;
+
+    @Autowired
+
+    private OpcionModeloService opcionesModeloService;
+
     public List<DetalleCompra> findAll() {
         return detalleCompraRepository.findAll();
     }
@@ -21,9 +31,12 @@ public class DetalleCompraService {
     }
 
     public DetalleCompra saveDetalleCompra(DetalleCompra detalleCompra) {
+        Compra compra=compraService.findCompra(detalleCompra.getNumeroFactura());
+        detalleCompra.setCompra(compra);
+        OpcionesModelo opcionesModelo= opcionesModeloService.findOpcionesModelo(detalleCompra.getIdOpcionesModelo());
+        detalleCompra.setDetalls(opcionesModelo);
         return detalleCompraRepository.save(detalleCompra);
     }
-
 
 
     public void deleteDetalleCompra(long id) {

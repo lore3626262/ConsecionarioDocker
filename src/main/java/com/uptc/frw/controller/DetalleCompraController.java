@@ -29,8 +29,8 @@ public class DetalleCompraController {
         return detalleCompraService.saveDetalleCompra(detalleCompra);
     }
 
-    @DeleteMapping("{id}")
-    public void deleteDetalleCompra(@PathVariable int id) {
+    @DeleteMapping()
+    public void deleteDetalleCompra(@RequestParam int id) {
         detalleCompraService.deleteDetalleCompra(id);
     }
 

@@ -19,7 +19,7 @@ public class DetalleCompra {
 
     @ManyToOne
     @JoinColumn(name = "NUMERO_FACTURA")
-    private Compra detallecompra;
+    private Compra compra;
 
     @ManyToOne
     @JoinColumn(name = "ID_OPCIONES_MODELO")
@@ -50,13 +50,7 @@ public class DetalleCompra {
         this.idOpcionesModelo = idOpcionesModelo;
     }
 
-    public Compra getDetallecompra() {
-        return detallecompra;
-    }
 
-    public void setDetallecompra(Compra detallecompra) {
-        this.detallecompra = detallecompra;
-    }
 
     public OpcionesModelo getDetalls() {
         return detalls;
@@ -64,5 +58,13 @@ public class DetalleCompra {
 
     public void setDetalls(OpcionesModelo detalls) {
         this.detalls = detalls;
+    }
+
+    public Compra getCompra() {
+        return compra;
+    }
+
+    public void setCompra(Compra compra) {
+        this.compra = compra;
     }
 }

@@ -9,19 +9,17 @@ import java.util.List;
 @Table(name = "compra")
 public class Compra {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "NUMERO_FACTURA")
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 
-
-    @Column(name = "CEDULA_CLIENTE",insertable = false, updatable = false)
+    @Column(name = "CEDULA_CLIENTE", insertable = false, updatable = false)
     private int cedulaCliente;
 
-
-    @Column(name = "CEDULA_VENDEDOR",insertable = false, updatable = false)
+    @Column(name = "CEDULA_VENDEDOR", insertable = false, updatable = false)
     private int cedulaVendedor;
 
-    @Column(name = "PLACA",insertable = false, updatable = false)
+    @Column(name = "PLACA", insertable = false, updatable = false)
     private String placa;
 
     @Column(name = "PRECIO_TOTAL")
@@ -35,22 +33,18 @@ public class Compra {
     private Persona clienteFactura;
 
     @ManyToOne
-    @JoinColumn (name="CEDULA_VENDEDOR")
+    @JoinColumn(name = "CEDULA_VENDEDOR")
     private Persona vendedorFactura;
-
-    @OneToMany(mappedBy = "detallecompra")
-    private List<DetalleCompra> detailsCompra;
 
     @ManyToOne
     @JoinColumn(name = "PLACA")
     private Vehiculo vehiculoFactura;
 
-    @ManyToOne
-    @JoinColumn(name = "ID_REFERENCIA")
-    private Referencia referencia;
+    @OneToMany(mappedBy = "compra")
+    private List<DetalleCompra> detailsCompra;
 
-    @OneToMany(mappedBy = "cesionCompra")
-    private List<Cesion> cesionCompra;
+
+
 
     public int getId() {
         return id;
@@ -116,35 +110,11 @@ public class Compra {
         this.vendedorFactura = vendedorFactura;
     }
 
-    public List<DetalleCompra> getDetailsCompra() {
-        return detailsCompra;
-    }
-
-    public void setDetailsCompra(List<DetalleCompra> detailsCompra) {
-        this.detailsCompra = detailsCompra;
-    }
-
     public Vehiculo getVehiculoFactura() {
         return vehiculoFactura;
     }
 
     public void setVehiculoFactura(Vehiculo vehiculoFactura) {
         this.vehiculoFactura = vehiculoFactura;
-    }
-
-    public Referencia getReferencia() {
-        return referencia;
-    }
-
-    public void setReferencia(Referencia referencia) {
-        this.referencia = referencia;
-    }
-
-    public List<Cesion> getCesionCompra() {
-        return cesionCompra;
-    }
-
-    public void setCesionCompra(List<Cesion> cesionCompra) {
-        this.cesionCompra = cesionCompra;
     }
 }

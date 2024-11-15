@@ -30,8 +30,8 @@ public class CompraController {
         return compraService.saveCompra(compra);
     }
 
-    @DeleteMapping("{id}")
-    public void deleteCompra(@PathVariable int id) {
+    @DeleteMapping()
+    public void deleteCompra(@RequestParam int id) {
         compraService.deleteCompra(id);
     }
 

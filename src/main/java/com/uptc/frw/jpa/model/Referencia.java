@@ -1,5 +1,6 @@
 package com.uptc.frw.jpa.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -22,7 +23,8 @@ public class Referencia {
     private Integer anio;
 
     @OneToMany(mappedBy = "referencia")
-    private List<Vehiculo> destallesVehiculos;
+    @JsonIgnore
+    private List<Vehiculo> referencias;
 
 
     public Integer getId() {
@@ -57,13 +59,11 @@ public class Referencia {
         this.anio = anio;
     }
 
-    public List<Vehiculo> getDestallesVehiculos() {
-        return destallesVehiculos;
+    public List<Vehiculo> getReferencias() {
+        return referencias;
     }
 
-    public void setDestallesVehiculos(List<Vehiculo> destallesVehiculos) {
-        this.destallesVehiculos = destallesVehiculos;
+    public void setReferencias(List<Vehiculo> referencias) {
+        this.referencias = referencias;
     }
-
-
 }

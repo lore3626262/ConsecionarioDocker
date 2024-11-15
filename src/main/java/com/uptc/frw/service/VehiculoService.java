@@ -1,6 +1,8 @@
 package com.uptc.frw.service;
 
 
+import com.uptc.frw.jpa.model.Compra;
+import com.uptc.frw.jpa.model.Referencia;
 import com.uptc.frw.jpa.model.Vehiculo;
 import com.uptc.frw.jpa.repository.VehiculoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,14 @@ public class VehiculoService {
     @Autowired
     private VehiculoRepository vehiculoRepository;
 
+    @Autowired
+    private ReferenciaService referenciaService;
+    @Autowired
+    private PersonaService personaService;
+    @Autowired
+    private CompraService compraService;
+
+
     public List<Vehiculo> findAll() {
         return vehiculoRepository.findAll();
     }
@@ -27,10 +37,13 @@ public class VehiculoService {
     }
 
     public Vehiculo saveVehiculo(Vehiculo vehiculo) {
+        Referencia ref=referenciaService.findReferencia(vehiculo.getIdReferencia());
+        vehiculo.setReferencia(ref);
         return vehiculoRepository.save(vehiculo);
     }
 
     public void deleteVehiculo(String id) {
+
         vehiculoRepository.deleteById(id);
     }
 

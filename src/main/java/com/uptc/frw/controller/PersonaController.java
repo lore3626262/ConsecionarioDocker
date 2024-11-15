@@ -27,12 +27,15 @@ public class PersonaController {
         return personaService.savePersona(persona);
     }
 
+
     @DeleteMapping
     public String deletePersona(@RequestParam int id ) {
         return personaService.deletePersona(id);
     }
+
     @PutMapping
     public Persona updatePersona(@RequestBody Persona persona) {
         return personaService.updatePersona(persona);
     }
+
 }

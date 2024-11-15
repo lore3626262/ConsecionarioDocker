@@ -22,7 +22,7 @@ public class CesionController {
     }
 
     @GetMapping("{id}")
-    public Cesion getCesion(@PathVariable int id) {
+    public Cesion getCesion(@PathVariable Integer id) {
         return cesionService.findCesion(id);
     }
 
@@ -31,8 +31,8 @@ public class CesionController {
         return cesionService.saveCesion(cesion);
     }
 
-    @DeleteMapping("{id}")
-    public void deleteCesion(@PathVariable int id) {
+    @DeleteMapping()
+    public void deleteCesion(@RequestParam Integer id) {
         cesionService.deleteCesion(id);
     }
 

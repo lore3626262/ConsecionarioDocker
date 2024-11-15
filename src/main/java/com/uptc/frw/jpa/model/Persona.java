@@ -7,7 +7,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "persona")
-
 public class Persona {
     @Id
     @Column(name = "CEDULA")

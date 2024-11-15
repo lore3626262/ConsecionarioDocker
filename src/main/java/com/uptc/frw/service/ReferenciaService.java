@@ -25,8 +25,19 @@ public class ReferenciaService {
         return referenciaRepository.save(referencia);
     }
 
-    public void deleteReferencia(int id) {
+    public String deleteReferencia(int id) {
+
+        if (referenciaRepository.findById(id).isEmpty()){
+            return "La referncia con el ID"+ id +" no se encuentra";
+        }
         referenciaRepository.deleteById(id);
+
+        if (referenciaRepository.findById(id).isEmpty()) {
+            return "La referencia con el ID " + id + " se ha eliminado correctamente.";
+        } else {
+            return "La referencia con el ID " + id + " no pudo ser eliminada";
+        }
+
     }
 
     public Referencia updateReferencia(Referencia referencia) {

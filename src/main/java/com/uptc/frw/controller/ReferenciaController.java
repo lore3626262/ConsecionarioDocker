@@ -30,8 +30,8 @@ public class ReferenciaController {
     }
 
     @DeleteMapping()
-    public void deleteReferencia( @RequestParam int id) {
-        referenciaService.deleteReferencia(id);
+    public String deleteReferencia(@RequestParam int id) {
+        return referenciaService.deleteReferencia(id);
     }
 
     @PutMapping

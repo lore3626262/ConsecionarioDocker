@@ -19,7 +19,7 @@ public class Vehiculo {
     private double precio;
 
     @Column(name = "ESTADO")
-    private String estado;
+    private char estado;
 
     @OneToMany(mappedBy = "vehiculoFactura")
     private List<Compra> vehiculoCompra;
@@ -56,28 +56,12 @@ public class Vehiculo {
         this.precio = precio;
     }
 
-    public String getEstado() {
+    public char getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(char estado) {
         this.estado = estado;
-    }
-
-    public List<Compra> getVehiculoCompra() {
-        return vehiculoCompra;
-    }
-
-    public void setVehiculoCompra(List<Compra> vehiculoCompra) {
-        this.vehiculoCompra = vehiculoCompra;
-    }
-
-    public List<Cesion> getCesion() {
-        return cesion;
-    }
-
-    public void setCesion(List<Cesion> cesion) {
-        this.cesion = cesion;
     }
 
     public Referencia getReferencia() {

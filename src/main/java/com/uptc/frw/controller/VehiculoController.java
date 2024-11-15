@@ -30,8 +30,8 @@ public class VehiculoController {
         return vehiculoService.saveVehiculo(vehiculo);
     }
 
-    @DeleteMapping("{id}")
-    public void deleteVehiculo(@PathVariable String id) {
+    @DeleteMapping()
+    public void deleteVehiculo(@RequestParam String id) {
         vehiculoService.deleteVehiculo(id);
     }
 

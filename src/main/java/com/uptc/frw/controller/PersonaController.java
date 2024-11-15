@@ -28,8 +28,8 @@ public class PersonaController {
     }
 
     @DeleteMapping
-    public void deletePersona(@RequestBody int id ) {
-        personaService.deletePersona(id);
+    public String deletePersona(@RequestParam int id ) {
+        return personaService.deletePersona(id);
     }
     @PutMapping
     public Persona updatePersona(@RequestBody Persona persona) {

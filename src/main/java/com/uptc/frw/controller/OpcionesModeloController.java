@@ -20,7 +20,7 @@ public class OpcionesModeloController {
     }
 
     @GetMapping("{id}")
-    public OpcionesModelo getOpcionesModelo(@PathVariable long id) {
+    public OpcionesModelo getOpcionesModelo(@PathVariable int id) {
         return opcionesModeloService.findOpcionesModelo(id);
     }
 
@@ -29,8 +29,8 @@ public class OpcionesModeloController {
         return opcionesModeloService.saveOpcionesModelo(opcionesModelo);
     }
 
-    @DeleteMapping("{id}")
-    public void deleteOpcionesModelo(@PathVariable int id) {
+    @DeleteMapping()
+    public void deleteOpcionesModelo(@RequestParam int id) {
         opcionesModeloService.deleteOpcionesModelo(id);
     }
 

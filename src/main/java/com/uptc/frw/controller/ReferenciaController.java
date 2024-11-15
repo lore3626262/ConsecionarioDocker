@@ -29,9 +29,9 @@ public class ReferenciaController {
         return referenciaService.saveReferencia(referencia);
     }
 
-    @DeleteMapping("{id}")
-    public void deleteReferencia(@PathVariable int id) {
-        referenciaService.deleteReferencia(id);
+    @DeleteMapping()
+    public String deleteReferencia(@RequestParam int id) {
+        return referenciaService.deleteReferencia(id);
     }
 
     @PutMapping

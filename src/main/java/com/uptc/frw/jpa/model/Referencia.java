@@ -9,6 +9,7 @@ import java.util.List;
 public class Referencia {
     @Id
     @Column(name = "ID_REFERENCIA")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "MARCA")

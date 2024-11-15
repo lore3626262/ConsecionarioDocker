@@ -18,7 +18,7 @@ public class OpcionModeloService {
         return opcionesModeloRepository.findAll();
     }
 
-    public OpcionesModelo findOpcionesModelo(long id) {
+    public OpcionesModelo findOpcionesModelo(int id) {
         return opcionesModeloRepository.findById(id).orElse(null);
     }
 
@@ -26,23 +26,20 @@ public class OpcionModeloService {
         return opcionesModeloRepository.save(opcionesModelo);
     }
 
-    public void deleteOpcionesModelo(long id) {
+    public void deleteOpcionesModelo(int id) {
         opcionesModeloRepository.deleteById(id);
     }
 
     public OpcionesModelo updateOpcionesModelo(OpcionesModelo opcionesModelo) {
 
-        OpcionesModelo opcionesModeloOLd = findOpcionesModelo(opcionesModelo.getId());
-
-        if (opcionesModeloOLd != null) {
-            throw new IllegalArgumentException("La persona con el numero de cedula " + opcionesModelo.getId() + " no se encuentra.");
+        if (opcionesModeloRepository.existsById(opcionesModelo.getId())) {
+            opcionesModelo.setNombre(opcionesModelo.getNombre());
+            opcionesModelo.setDescripcion(opcionesModelo.getDescripcion());
+            return opcionesModeloRepository.save(opcionesModelo);
         }
+        return null;
 
-        opcionesModelo.setNombre(opcionesModelo.getNombre());
-        opcionesModelo.setDescripcion(opcionesModelo.getDescripcion());
-        return opcionesModeloRepository.save(opcionesModelo);
     }
-
 
 
 

@@ -12,6 +12,7 @@ import java.util.Date;
 public class Cesion {
     @Id
     @Column(name = "ID_CESION")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "PLACA",insertable = false, updatable = false)

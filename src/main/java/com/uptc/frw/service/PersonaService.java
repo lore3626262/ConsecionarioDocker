@@ -25,8 +25,21 @@ public class PersonaService {
         return personasRepository.save(persona);
     }
 
-    public void deletePersona(int id) {
+    public String deletePersona(int id) {
+
+        if(personasRepository.findById(id).isEmpty()) {
+            return "No se encuentra la persona con el numero de cedula " + id + ".";
+
+        }
         personasRepository.deleteById(id);
+
+        if (personasRepository.findById(id).isEmpty()) {
+            return "Persona eliminada correctamente.";
+        }else {
+            return "No se pudo eliminar la persona.";
+        }
+
+
     }
 
     public Persona updatePersona(Persona persona) {
